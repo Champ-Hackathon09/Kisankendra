@@ -1,0 +1,60 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  name      String
+  phone     String   @unique
+  password  String
+  role      String   @default("FARMER") // FARMER, OPERATOR, ADMIN
+  state     String?
+  district  String?
+  village   String?
+  tokens    Token[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Centre {
+  id                 String   @id @default(uuid())
+  name               String
+  code               String   @unique
+  district           String
+  state              String
+  address            String
+  operationalStatus  String   @default("NORMAL") // NORMAL, RUSH, PAUSED
+  pauseReason        String?
+  capacityPerHour    Int      @default(5)
+  currentWaitMinutes Int      @default(15)
+  tokens             Token[]
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+}
+
+model Token {
+  id                   String   @id @default(uuid())
+  tokenNumber          String   @unique
+  farmerId             String
+  farmer               User     @relation(fields: [farmerId], references: [id])
+  centreId             String
+  centre               Centre   @relation(fields: [centreId], references: [id])
+  cropType             String
+  estimatedWeight      Float    // in Quintals
+  vehicleNumber        String?
+  slotDate             String
+  slotTime             String
+  queuePosition        Int      @default(1)
+  estimatedWaitMinutes Int      @default(20)
+  actualWeight         Float?
+  moistureLevel        Float?
+  status               String   @default("BOOKED") // BOOKED, CALLED, IN_PROGRESS, COMPLETED, CANCELLED
+  rejectionReason      String?
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+}
