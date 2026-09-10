@@ -6,11 +6,24 @@ const prisma = new PrismaClient();
 async function main() {
   console.log('Seeding initial KisanKendra data...');
 
+  // Stable Deterministic IDs
+  const KARNAL_CENTRE_ID = '9268a530-7a40-42ca-a9f4-afc1fa49eba3';
+  const SEHORE_CENTRE_ID = '4b1ae8fb-9c67-441b-8797-ec3e94541c34';
+  const DEMO_FARMER_ID = '11111111-1111-4111-8111-111111111111';
+  const DEMO_OPERATOR_ID = '22222222-2222-4222-8222-222222222222';
+
   // 1. Create Centres
   const karnalCentre = await prisma.centre.upsert({
     where: { code: 'HR-KRN-01' },
-    update: {},
+    update: {
+      name: 'Karnal APMC Grain Market Centre',
+      district: 'Karnal',
+      state: 'Haryana',
+      address: 'Near GT Road, New Grain Market, Karnal',
+      capacityPerHour: 6,
+    },
     create: {
+      id: KARNAL_CENTRE_ID,
       name: 'Karnal APMC Grain Market Centre',
       code: 'HR-KRN-01',
       district: 'Karnal',
@@ -24,8 +37,15 @@ async function main() {
 
   const sehoreCentre = await prisma.centre.upsert({
     where: { code: 'MP-SEH-01' },
-    update: {},
+    update: {
+      name: 'Sehore Krishi Upaj Mandi',
+      district: 'Sehore',
+      state: 'Madhya Pradesh',
+      address: 'Bhopal-Indore Highway, Sehore',
+      capacityPerHour: 5,
+    },
     create: {
+      id: SEHORE_CENTRE_ID,
       name: 'Sehore Krishi Upaj Mandi',
       code: 'MP-SEH-01',
       district: 'Sehore',
@@ -44,6 +64,7 @@ async function main() {
     where: { phone: '9876543210' },
     update: {},
     create: {
+      id: DEMO_FARMER_ID,
       name: 'Ramesh Kumar (Farmer)',
       phone: '9876543210',
       password: defaultPassword,
@@ -58,6 +79,7 @@ async function main() {
     where: { phone: '9123456780' },
     update: {},
     create: {
+      id: DEMO_OPERATOR_ID,
       name: 'Suresh Verma (Mandi Operator)',
       phone: '9123456780',
       password: defaultPassword,

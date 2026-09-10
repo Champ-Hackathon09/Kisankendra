@@ -88,12 +88,12 @@ export default function Login({ onLoginSuccess }) {
   };
 
   return (
-    <div className="min-h-screen bg-[#07130e] text-slate-100 flex items-center justify-center p-4 relative overflow-hidden">
+    <div className="min-h-screen bg-[#080d17] text-slate-100 flex items-center justify-center p-4 relative overflow-hidden">
       {/* Background Agritech Glow Effects */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
-      <div className="relative z-10 max-w-md w-full bg-[#0a2016]/95 border border-emerald-500/30 rounded-3xl p-6 sm:p-8 shadow-2xl shadow-black/80 backdrop-blur-2xl">
+      <div className="relative z-10 max-w-md w-full bg-slate-900/90 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl shadow-black/80 backdrop-blur-2xl hover:border-emerald-500/40 transition-all">
         {/* Brand Header */}
         <div className="text-center pb-6 border-b border-emerald-500/20">
           <div className="h-14 w-14 rounded-2xl bg-gradient-to-br from-emerald-500 via-teal-600 to-emerald-800 text-white flex items-center justify-center mx-auto mb-3 shadow-lg shadow-emerald-500/30 border border-emerald-400/40">

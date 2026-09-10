@@ -259,7 +259,7 @@ export default function Sidebar({ activeTab, setActiveTab, unreadAlerts = 3, use
           </div>
 
           {/* Real-time Yard Telemetry Gauge Card */}
-          <div className="mt-2.5 p-3 rounded-2xl bg-[#091812] border border-emerald-500/20 shadow-sm relative overflow-hidden">
+          <div className="mt-2.5 p-3 rounded-2xl bg-slate-900/80 border border-slate-800 shadow-sm relative overflow-hidden">
             <div className="flex items-center justify-between text-[10px] font-bold mb-1.5">
               <span className="text-slate-300 flex items-center gap-1">
                 <Scale size={12} className="text-emerald-400" />

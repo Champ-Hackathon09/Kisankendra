@@ -118,7 +118,7 @@ export default function App() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#07130e]">
+      <div className="min-h-screen flex items-center justify-center bg-[#080d17]">
         <div className="text-center">
           <div className="w-10 h-10 border-4 border-emerald-500 border-t-transparent rounded-full animate-spin mx-auto mb-3"></div>
           <p className="text-xs font-bold text-emerald-400">Connecting to KisanKendra Telemetry...</p>
@@ -132,7 +132,7 @@ export default function App() {
   }
 
   return (
-    <div className="h-screen w-screen overflow-hidden bg-[#07130e] text-slate-100 flex">
+    <div className="h-screen w-screen overflow-hidden bg-[#080d17] text-slate-100 flex">
       {/* 1. Left Vertical Navigation Sidebar */}
       <Sidebar
         activeTab={activeTab}
@@ -143,27 +143,27 @@ export default function App() {
       />
 
       {/* 2. Main Work Area */}
-      <div className="flex-1 flex flex-col min-w-0 h-full overflow-hidden bg-[#07130e]">
+      <div className="flex-1 flex flex-col min-w-0 h-full overflow-hidden bg-[#080d17]">
         {/* Top Floating Cyber-Agritech Command Bar */}
-        <header className="bg-[#07130e]/90 backdrop-blur-2xl border-b border-emerald-500/20 px-6 py-2.5 flex items-center justify-between gap-4 shrink-0 z-20 shadow-[0_4px_25px_rgba(0,0,0,0.4)]">
+        <header className="bg-[#0b1222]/90 backdrop-blur-2xl border-b border-slate-800/80 px-6 py-2.5 flex items-center justify-between gap-4 shrink-0 z-20 shadow-[0_4px_25px_rgba(0,0,0,0.5)]">
           {/* Quick Search */}
           <div className="relative w-72 shrink-0">
-            <Search size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-emerald-400/60" />
+            <Search size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-emerald-400/70" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search token, centre, crop..."
-              className="w-full bg-[#0b1b14] border border-emerald-500/30 pl-10 pr-12 py-1.5 rounded-xl text-xs text-emerald-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/30 focus:border-emerald-400 transition"
+              className="w-full bg-[#111c33] border border-slate-700/70 pl-10 pr-12 py-1.5 rounded-xl text-xs text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/30 focus:border-emerald-400 transition shadow-inner"
             />
-            <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[9px] font-mono text-emerald-400/50 bg-emerald-950/60 px-1.5 py-0.5 rounded border border-emerald-500/20">
+            <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[9px] font-mono text-emerald-400/60 bg-emerald-950/60 px-1.5 py-0.5 rounded border border-emerald-500/30">
               Ctrl K
             </span>
           </div>
 
           {/* Center: Live APMC Market Marquee / Ticker */}
-          <div className="hidden lg:flex flex-1 items-center overflow-hidden bg-[#091812]/80 border border-emerald-500/20 rounded-xl px-3 py-1.5 shadow-inner">
-            <div className="flex items-center gap-1.5 text-[10px] font-black uppercase text-emerald-400 pr-3 border-r border-emerald-500/30 shrink-0">
+          <div className="hidden lg:flex flex-1 items-center overflow-hidden bg-[#111c33]/70 border border-slate-800/80 rounded-xl px-3 py-1.5 shadow-inner">
+            <div className="flex items-center gap-1.5 text-[10px] font-black uppercase text-emerald-400 pr-3 border-r border-slate-700/60 shrink-0">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
               APMC Ticker
             </div>
@@ -172,23 +172,23 @@ export default function App() {
                 <span className="flex items-center gap-1.5">
                   🌾 <strong className="text-white">Wheat (Sharbati):</strong> <span className="text-emerald-400 font-bold">₹2,275/Qtl</span>
                 </span>
-                <span className="text-emerald-500/40">&bull;</span>
+                <span className="text-slate-600">&bull;</span>
                 <span className="flex items-center gap-1.5">
                   🌾 <strong className="text-white">Paddy (Basmati):</strong> <span className="text-emerald-400 font-bold">₹2,300/Qtl</span>
                 </span>
-                <span className="text-emerald-500/40">&bull;</span>
+                <span className="text-slate-600">&bull;</span>
                 <span className="flex items-center gap-1.5">
                   🌼 <strong className="text-white">Mustard (Sarson):</strong> <span className="text-emerald-400 font-bold">₹5,650/Qtl</span>
                 </span>
-                <span className="text-emerald-500/40">&bull;</span>
+                <span className="text-slate-600">&bull;</span>
                 <span className="flex items-center gap-1.5">
                   🌱 <strong className="text-white">Gram (Chana):</strong> <span className="text-emerald-400 font-bold">₹5,440/Qtl</span>
                 </span>
-                <span className="text-emerald-500/40">&bull;</span>
+                <span className="text-slate-600">&bull;</span>
                 <span className="flex items-center gap-1.5">
                   🚜 <strong className="text-white">Karnal Yard:</strong> <span className="text-cyan-300 font-bold">0 Waiting at Ingate</span>
                 </span>
-                <span className="text-emerald-500/40">&bull;</span>
+                <span className="text-slate-600">&bull;</span>
                 <span className="flex items-center gap-1.5">
                   ⚖️ <strong className="text-white">Weighbridges:</strong> <span className="text-emerald-400 font-bold">Bays #1 & #2 Operational</span>
                 </span>
@@ -199,9 +199,9 @@ export default function App() {
           {/* Right Controls */}
           <div className="flex items-center gap-3 shrink-0">
             {/* Real-time IST Digital Clock */}
-            <div className="hidden sm:flex items-center gap-2 bg-[#091812] border border-emerald-500/25 px-3 py-1.5 rounded-xl shadow-xs">
+            <div className="hidden sm:flex items-center gap-2 bg-[#111c33] border border-slate-800 px-3 py-1.5 rounded-xl shadow-xs">
               <Clock size={13} className="text-emerald-400 animate-pulse" />
-              <div className="text-xs font-mono font-bold text-emerald-200 tracking-wider">
+              <div className="text-xs font-mono font-bold text-emerald-300 tracking-wider">
                 {currentTime}
               </div>
             </div>
@@ -220,7 +220,7 @@ export default function App() {
               </button>
             )}
 
-            <div className="flex items-center gap-2.5 pl-2 border-l border-emerald-500/20">
+            <div className="flex items-center gap-2.5 pl-2 border-l border-slate-800">
               <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-500 text-white flex items-center justify-center text-xs font-bold shadow-md border border-emerald-400/40">
                 {user.name?.charAt(0) || 'K'}
               </div>
@@ -235,7 +235,7 @@ export default function App() {
 
             <button
               onClick={handleLogout}
-              className="text-xs font-semibold text-slate-400 hover:text-rose-300 px-2.5 py-1.5 rounded-xl border border-emerald-500/20 hover:border-rose-500/30 hover:bg-rose-950/40 transition cursor-pointer"
+              className="text-xs font-semibold text-slate-400 hover:text-rose-300 px-2.5 py-1.5 rounded-xl border border-slate-800 hover:border-rose-500/30 hover:bg-rose-950/40 transition cursor-pointer"
               title="Sign Out"
             >
               Sign Out
@@ -244,7 +244,7 @@ export default function App() {
         </header>
 
         {/* Dynamic View Body */}
-        <main className="flex-1 overflow-y-auto p-5 md:p-7 bg-[#07130e]/95">
+        <main className="flex-1 overflow-y-auto p-5 md:p-7 bg-[#080d17]/95">
           {activeTab === 'dashboard' && <FarmerDashboard user={user} onNavigate={setActiveTab} />}
           {activeTab === 'operator' && <OperatorConsole user={user} />}
           {activeTab === 'stocks' && (

@@ -57,7 +57,7 @@ export default function CropStockSection({ onBookCropSlot }) {
   return (
     <div className="space-y-6">
       {/* Top Banner / Metrics Overview */}
-      <div className="relative rounded-3xl p-6 border border-emerald-500/30 shadow-2xl shadow-black/50 overflow-hidden bg-gradient-to-br from-[#092218] via-[#0b291d] to-[#06160f] text-white">
+      <div className="relative rounded-3xl p-6 border border-slate-800 shadow-2xl shadow-black/50 overflow-hidden bg-gradient-to-br from-[#0c1626]/95 via-[#0e1d33]/90 to-[#080d17]/98 text-white">
         <div className="absolute top-0 right-0 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 relative z-10">
@@ -80,7 +80,7 @@ export default function CropStockSection({ onBookCropSlot }) {
             <button
               onClick={fetchStocks}
               disabled={loading}
-              className="p-2.5 border border-emerald-500/30 rounded-xl bg-black/40 hover:bg-black/60 text-emerald-300 transition flex items-center gap-1.5 text-xs font-bold cursor-pointer shadow-xs"
+              className="p-2.5 border border-slate-700 rounded-xl bg-slate-900/80 hover:bg-slate-800 text-emerald-300 transition flex items-center gap-1.5 text-xs font-bold cursor-pointer shadow-xs"
               title="Refresh Silo Stock"
             >
               <RefreshCw size={14} className={loading ? 'animate-spin text-emerald-400' : ''} />
@@ -91,14 +91,14 @@ export default function CropStockSection({ onBookCropSlot }) {
 
         {/* Silo Aggregates Bar */}
         {summary && (
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3.5 mt-6 pt-5 border-t border-emerald-500/20 relative z-10">
-            <div className="bg-[#061710]/80 p-3.5 rounded-2xl border border-emerald-500/20 shadow-inner">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3.5 mt-6 pt-5 border-t border-slate-800/80 relative z-10">
+            <div className="bg-slate-900/70 p-3.5 rounded-2xl border border-slate-800 shadow-inner">
               <div className="text-[10px] uppercase font-bold text-slate-400">Total Supported Crops</div>
               <div className="text-xl sm:text-2xl font-black text-white mt-0.5 font-display">{summary.totalCropsSupported} Commodities</div>
               <div className="text-[10px] text-emerald-400 font-semibold mt-0.5">Government MSP Notified</div>
             </div>
 
-            <div className="bg-[#061710]/80 p-3.5 rounded-2xl border border-emerald-500/20 shadow-inner">
+            <div className="bg-slate-900/70 p-3.5 rounded-2xl border border-slate-800 shadow-inner">
               <div className="text-[10px] uppercase font-bold text-slate-400">Total Silo Capacity</div>
               <div className="text-xl sm:text-2xl font-black text-white mt-0.5 font-display">
                 {(summary.totalYardCapacityQuintals / 10).toLocaleString()} MT
@@ -108,7 +108,7 @@ export default function CropStockSection({ onBookCropSlot }) {
               </div>
             </div>
 
-            <div className="bg-[#061710]/80 p-3.5 rounded-2xl border border-emerald-500/20 shadow-inner">
+            <div className="bg-slate-900/70 p-3.5 rounded-2xl border border-slate-800 shadow-inner">
               <div className="text-[10px] uppercase font-bold text-slate-400">Current Mandi Stock</div>
               <div className="text-xl sm:text-2xl font-black text-emerald-300 mt-0.5 font-display">
                 {summary.totalYardStockQuintals.toLocaleString()} Qtl
@@ -116,16 +116,10 @@ export default function CropStockSection({ onBookCropSlot }) {
               <div className="text-[10px] text-emerald-400 font-semibold mt-0.5">Weighbridge Certified</div>
             </div>
 
-            <div className="bg-[#061710]/80 p-3.5 rounded-2xl border border-emerald-500/20 shadow-inner">
+            <div className="bg-slate-900/70 p-3.5 rounded-2xl border border-slate-800 shadow-inner">
               <div className="text-[10px] uppercase font-bold text-slate-400">Yard Storage Occupancy</div>
-              <div className="flex items-center gap-2 mt-0.5">
-                <div className="text-xl sm:text-2xl font-black text-amber-400 font-display">{summary.overallYardOccupancyPercentage}%</div>
-                <div className="flex-1 bg-[#091a13] rounded-full h-2 overflow-hidden border border-emerald-500/20">
-                  <div
-                    className="bg-gradient-to-r from-emerald-400 via-teal-400 to-amber-400 h-full rounded-full transition-all duration-500 shadow-sm"
-                    style={{ width: `${summary.overallYardOccupancyPercentage}%` }}
-                  ></div>
-                </div>
+              <div className="text-xl sm:text-2xl font-black text-amber-300 mt-0.5 font-display">
+                {summary.overallYardOccupancyPercentage || summary.overallOccupancyPercentage || 45}%
               </div>
               <div className="text-[10px] text-slate-400 mt-0.5">Aerated Covered Bays</div>
             </div>
@@ -169,25 +163,25 @@ export default function CropStockSection({ onBookCropSlot }) {
         </div>
 
         <div className="relative w-full sm:w-64">
-          <Search size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-emerald-400/60" />
+          <Search size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-emerald-400/70" />
           <input
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search crop name..."
-            className="w-full bg-[#0b1b14] border border-emerald-500/30 pl-9 pr-3 py-1.5 rounded-xl text-xs text-emerald-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/30 focus:border-emerald-400"
+            className="w-full bg-[#111c33] border border-slate-700/80 pl-9 pr-3 py-1.5 rounded-xl text-xs text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/30 focus:border-emerald-400"
           />
         </div>
       </div>
 
       {/* Grid of Crop Cards with Real Photographs */}
       {loading ? (
-        <div className="p-16 text-center bg-[#091f16]/80 rounded-3xl border border-emerald-500/25">
+        <div className="p-16 text-center bg-slate-900/80 rounded-3xl border border-slate-800 shadow-xl">
           <div className="w-8 h-8 border-3 border-emerald-400 border-t-transparent rounded-full animate-spin mx-auto mb-2"></div>
           <p className="text-xs font-bold text-emerald-300">Loading Mandi Silo Stock & Crop Details...</p>
         </div>
       ) : filteredCrops.length === 0 ? (
-        <div className="p-12 text-center bg-[#091f16]/80 rounded-3xl border border-emerald-500/25">
+        <div className="p-12 text-center bg-slate-900/80 rounded-3xl border border-slate-800 shadow-xl">
           <AlertCircle className="w-10 h-10 text-slate-400 mx-auto mb-2" />
           <h3 className="text-sm font-bold text-slate-200 font-display">No matching crops found</h3>
           <p className="text-xs text-slate-400 mt-1">Try clearing your search query or season filter.</p>
@@ -201,11 +195,11 @@ export default function CropStockSection({ onBookCropSlot }) {
             return (
               <div
                 key={crop.id}
-                className="bg-[#091f16]/85 backdrop-blur-xl rounded-3xl border border-emerald-500/20 shadow-lg hover:border-emerald-400/50 hover:shadow-2xl transition-all duration-300 card-hover-effect overflow-hidden flex flex-col justify-between group"
+                className="bg-slate-900/85 backdrop-blur-xl rounded-3xl border border-slate-800 shadow-xl hover:border-emerald-500/40 hover:shadow-2xl transition-all duration-300 card-hover-effect overflow-hidden flex flex-col justify-between group"
               >
                 <div>
                   {/* High Resolution Real Agricultural Photograph Header */}
-                  <div className="relative h-48 w-full overflow-hidden bg-slate-900">
+                  <div className="relative h-48 w-full overflow-hidden bg-slate-950">
                     <img
                       src={crop.image}
                       alt={crop.name}
@@ -213,7 +207,7 @@ export default function CropStockSection({ onBookCropSlot }) {
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       loading="lazy"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#091f16] via-[#091f16]/30 to-transparent"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
 
                     {/* Top Badges */}
                     <div className="absolute top-3 left-3 right-3 flex items-center justify-between">
@@ -244,7 +238,7 @@ export default function CropStockSection({ onBookCropSlot }) {
                     </p>
 
                     {/* Silo Capacity & Storage Stock Gauge */}
-                    <div className="bg-[#061710] p-3.5 rounded-2xl border border-emerald-500/20 space-y-2 shadow-inner">
+                    <div className="bg-slate-950/70 p-3.5 rounded-2xl border border-slate-800 space-y-2 shadow-inner">
                       <div className="flex items-center justify-between text-xs">
                         <span className="font-bold text-slate-300 flex items-center gap-1">
                           <Warehouse size={13} className="text-emerald-400" />
@@ -264,7 +258,7 @@ export default function CropStockSection({ onBookCropSlot }) {
                       </div>
 
                       {/* Progress Bar */}
-                      <div className="w-full bg-[#091a13] rounded-full h-2.5 overflow-hidden border border-emerald-500/15">
+                      <div className="w-full bg-slate-800 rounded-full h-2.5 overflow-hidden border border-slate-700/60">
                         <div
                           className={`h-full rounded-full transition-all duration-500 ${
                             isFull
@@ -285,7 +279,7 @@ export default function CropStockSection({ onBookCropSlot }) {
 
                     {/* Quality & Market Specifications Grid */}
                     <div className="grid grid-cols-2 gap-2 text-xs">
-                      <div className="p-2.5 bg-[#061710]/70 rounded-xl border border-emerald-500/15">
+                      <div className="p-2.5 bg-slate-950/60 rounded-xl border border-slate-800/80">
                         <span className="text-[10px] uppercase font-bold text-emerald-400 block flex items-center gap-1">
                           <Droplets size={11} className="text-cyan-400" /> Max Moisture
                         </span>
@@ -295,7 +289,7 @@ export default function CropStockSection({ onBookCropSlot }) {
                         <span className="text-[9px] text-slate-400">FAQ Rejection Limit</span>
                       </div>
 
-                      <div className="p-2.5 bg-[#061710]/70 rounded-xl border border-emerald-500/15">
+                      <div className="p-2.5 bg-slate-950/60 rounded-xl border border-slate-800/80">
                         <span className="text-[10px] uppercase font-bold text-cyan-400 block flex items-center gap-1">
                           <Scale size={11} className="text-emerald-400" /> Est. Payout
                         </span>

@@ -232,7 +232,7 @@ export default function FarmerDashboard({ user, onNavigate }) {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8 animate-slide-up">
       {/* Welcome Command Banner */}
-      <div className="relative rounded-3xl p-6 sm:p-8 text-white shadow-2xl shadow-black/60 overflow-hidden border border-emerald-500/30 bg-gradient-to-br from-[#0a2317] via-[#0c2e1f] to-[#06150e] transition-all duration-300 hover:border-emerald-400/50">
+      <div className="relative rounded-3xl p-6 sm:p-8 text-white shadow-2xl shadow-black/60 overflow-hidden border border-emerald-500/30 bg-gradient-to-br from-[#0c1626]/95 via-[#0e1d33]/90 to-[#080d17]/98 transition-all duration-300 hover:border-emerald-400/50">
         {/* Ambient Radial Lights */}
         <div className="absolute top-0 right-1/4 w-96 h-96 bg-emerald-500/15 rounded-full blur-3xl pointer-events-none animate-float-slow"></div>
         <div className="absolute bottom-0 right-0 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none animate-pulse-subtle"></div>
@@ -312,7 +312,7 @@ export default function FarmerDashboard({ user, onNavigate }) {
       </div>
 
       {/* FRONT & CENTER: DIRECT BOOKING SLOT PANEL (सामने Booking Slot) */}
-      <div className="bg-gradient-to-r from-[#092218] via-[#0d2e21] to-[#071912] rounded-3xl p-5 sm:p-6 border-2 border-emerald-400/50 shadow-2xl relative overflow-hidden">
+      <div className="bg-gradient-to-r from-[#0c1626]/95 via-[#0f2138]/90 to-[#09101c]/98 rounded-3xl p-5 sm:p-6 border-2 border-emerald-500/40 shadow-2xl relative overflow-hidden">
         <div className="absolute top-0 right-0 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
         <div className="relative z-10">
