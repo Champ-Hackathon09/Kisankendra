@@ -230,7 +230,7 @@ export default function FarmerDashboard({ user, onNavigate }) {
   };
 
   return (
-    <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 py-6 space-y-8 animate-fade-in-up">
+    <div className="w-full space-y-8 animate-fade-in-up">
       {/* Welcome Command Banner */}
       <div className="relative rounded-3xl p-6 sm:p-8 text-white shadow-2xl shadow-black/60 overflow-hidden border border-emerald-500/30 bg-gradient-to-br from-[#0c1626]/95 via-[#0e1d33]/90 to-[#080d17]/98 transition-all duration-300 hover:border-emerald-400/50">
         {/* Ambient Radial Lights */}

@@ -243,9 +243,14 @@ export default function App() {
           </div>
         </header>
 
-        {/* Dynamic View Body */}
-        <main className="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8 bg-[#070c16]/95 w-full">
-          <div className="w-full max-w-[1720px] mx-auto animate-fade-in-up">
+        {/* Dynamic View Body with 100% Full-Width Real Estate & Animated Orbs */}
+        <main className="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8 xl:p-10 w-full relative">
+          {/* Ambient Glowing Background Elements */}
+          <div className="absolute top-10 right-20 w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-[140px] pointer-events-none animate-float-slow"></div>
+          <div className="absolute bottom-20 left-40 w-[650px] h-[650px] bg-cyan-500/10 rounded-full blur-[150px] pointer-events-none animate-pulse-subtle"></div>
+          <div className="absolute top-1/2 right-1/4 w-[500px] h-[500px] bg-amber-500/8 rounded-full blur-[130px] pointer-events-none animate-float-gentle"></div>
+
+          <div className="w-full relative z-10 animate-fade-in-up">
             {activeTab === 'dashboard' && <FarmerDashboard user={user} onNavigate={setActiveTab} />}
             {activeTab === 'operator' && <OperatorConsole user={user} />}
             {activeTab === 'stocks' && (

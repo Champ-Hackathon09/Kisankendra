@@ -149,39 +149,39 @@ export default function BookingModal({
 
   const modalNode = (
     <div 
-      className="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-[9999] flex items-center justify-center p-3 sm:p-4 overflow-y-auto"
+      className="fixed inset-0 bg-black/85 backdrop-blur-md z-[9999] flex items-center justify-center p-3 sm:p-5 overflow-y-auto"
       onClick={handleResetAndClose}
     >
       <div 
         onClick={(e) => e.stopPropagation()}
-        className="glass-modal-surface text-white rounded-2xl sm:rounded-3xl max-w-4xl w-full shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-200 max-h-[92vh] flex flex-col relative border border-emerald-500/30"
+        className="glass-modal-surface text-white rounded-3xl max-w-5xl lg:max-w-6xl w-full shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-200 max-h-[92vh] flex flex-col relative border border-emerald-400/40"
       >
         
         {/* Modal Header */}
-        <div className="bg-gradient-to-r from-emerald-950/90 via-slate-900/90 to-teal-950/90 px-5 py-3 text-white flex items-center justify-between border-b border-emerald-500/25 shrink-0 relative overflow-hidden">
+        <div className="bg-gradient-to-r from-emerald-950/90 via-slate-900/95 to-teal-950/90 px-6 sm:px-8 py-4 text-white flex items-center justify-between border-b border-emerald-500/25 shrink-0 relative overflow-hidden">
           {/* Subtle Ambient Light Sweep */}
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-emerald-500/10 to-transparent animate-marquee pointer-events-none opacity-50"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-emerald-500/15 to-transparent animate-marquee pointer-events-none opacity-60"></div>
 
-          <div className="flex items-center gap-3 relative z-10">
-            <div className="h-9 w-9 rounded-xl bg-emerald-500/20 text-emerald-300 flex items-center justify-center font-bold border border-emerald-400/40 shadow-inner shadow-emerald-500/30 animate-float-gentle">
-              <Tractor className="h-4 w-4 text-emerald-300" />
+          <div className="flex items-center gap-3.5 relative z-10">
+            <div className="h-11 w-11 rounded-2xl bg-emerald-500/20 text-emerald-300 flex items-center justify-center font-bold border border-emerald-400/40 shadow-inner shadow-emerald-500/30 animate-float-gentle shrink-0">
+              <Tractor className="h-5 w-5 text-emerald-300" />
             </div>
             <div>
-              <div className="flex items-center gap-2">
-                <h3 className="text-sm sm:text-base font-black tracking-tight font-display leading-tight text-gradient-light">
+              <div className="flex items-center gap-2.5">
+                <h3 className="text-base sm:text-xl font-black tracking-tight font-display leading-tight text-gradient-light">
                   Schedule Mandi Arrival & Booking Slot
                 </h3>
-                <span className="bg-emerald-500/20 text-emerald-300 text-[9px] font-black px-2 py-0.5 rounded-full border border-emerald-400/30 flex items-center gap-1 shadow-xs">
+                <span className="bg-emerald-500/20 text-emerald-300 text-[10px] font-black px-2.5 py-0.5 rounded-full border border-emerald-400/30 flex items-center gap-1 shadow-xs">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
                   Live FIFO Telemetry
                 </span>
               </div>
-              <p className="text-[11px] text-emerald-200/80 font-medium">Select your delivery window upfront & eliminate roadside queue waiting</p>
+              <p className="text-xs text-emerald-200/90 font-medium mt-0.5">Select your delivery window upfront & eliminate roadside queue waiting</p>
             </div>
           </div>
           <button
             onClick={handleResetAndClose}
-            className="h-8 w-8 rounded-full bg-slate-800/60 hover:bg-slate-700/80 text-slate-300 hover:text-white flex items-center justify-center transition cursor-pointer border border-slate-700/50 hover:border-emerald-500/40 relative z-10"
+            className="h-9 w-9 rounded-full bg-slate-800/70 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center transition cursor-pointer border border-slate-700/60 hover:border-emerald-500/40 relative z-10"
           >
             <X className="h-4 w-4" />
           </button>
@@ -474,7 +474,7 @@ export default function BookingModal({
                         Checking real-time slot capacity...
                       </div>
                     ) : (
-                      <div className="grid grid-cols-2 gap-2">
+                      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
                         {(slotData?.slots || [
                           { slotTime: '08:00 AM - 09:00 AM', status: 'AVAILABLE', available: 6 },
                           { slotTime: '09:00 AM - 10:00 AM', status: 'AVAILABLE', available: 6 },
@@ -493,23 +493,23 @@ export default function BookingModal({
                               type="button"
                               disabled={isFull}
                               onClick={() => setSlotTime(s.slotTime)}
-                              className={`py-2 px-2.5 rounded-xl text-left border transition-all duration-200 cursor-pointer flex flex-col justify-between relative overflow-hidden group ${
+                              className={`py-3 px-3.5 rounded-2xl text-left border transition-all duration-200 cursor-pointer flex flex-col justify-between relative overflow-hidden group ${
                                 isFull
                                   ? 'bg-slate-950/40 border-slate-800 text-slate-600 opacity-40 cursor-not-allowed'
                                   : isSelected
-                                  ? 'slot-pill-active text-white shadow-lg shadow-emerald-950'
-                                  : 'slot-pill-hover bg-slate-950/70 border-slate-800 hover:border-emerald-500/40 text-slate-200 hover:bg-slate-900'
+                                  ? 'slot-pill-active text-white shadow-xl shadow-emerald-950'
+                                  : 'slot-pill-hover bg-slate-950/70 border-slate-800/90 hover:border-emerald-500/50 text-slate-200 hover:bg-slate-900'
                               }`}
                             >
                               <div className="flex items-center justify-between gap-1 w-full">
-                                <span className="text-[11px] font-black font-mono leading-tight">{s.slotTime}</span>
+                                <span className="text-xs font-black font-mono leading-tight">{s.slotTime}</span>
                                 {isSelected && (
-                                  <CheckCircle2 size={13} className="text-emerald-400 shrink-0 animate-bounce" />
+                                  <CheckCircle2 size={15} className="text-emerald-400 shrink-0 animate-bounce" />
                                 )}
                               </div>
-                              <div className="mt-1.5 flex items-center justify-between w-full">
+                              <div className="mt-2.5 flex items-center justify-between w-full">
                                 <span
-                                  className={`text-[8px] font-black uppercase px-1.5 py-0.5 rounded ${
+                                  className={`text-[9px] font-black uppercase px-2 py-0.5 rounded-md ${
                                     isFull
                                       ? 'bg-rose-500/20 text-rose-300 border border-rose-500/30'
                                       : s.status === 'FAST_FILLING'
@@ -523,8 +523,8 @@ export default function BookingModal({
                                     ? `Fast Filling (${s.available} Left)`
                                     : `${s.available} Open`}
                                 </span>
-                                <span className="text-[9px] text-slate-400 font-medium">
-                                  {isSelected ? 'Selected ✓' : 'Tap to Pick'}
+                                <span className="text-[10px] text-slate-400 font-semibold">
+                                  {isSelected ? 'Selected ✓' : 'Tap'}
                                 </span>
                               </div>
                             </button>
@@ -534,12 +534,12 @@ export default function BookingModal({
                     )}
 
                     {slotData?.recommendedSlot && (
-                      <div className="mt-2.5 text-[10px] text-emerald-300 flex items-center justify-between font-semibold bg-emerald-950/40 px-3 py-1.5 rounded-xl border border-emerald-500/30 shadow-xs">
-                        <span className="flex items-center gap-1.5">
-                          <Sparkles size={12} className="text-emerald-400 animate-spin" style={{ animationDuration: '8s' }} />
+                      <div className="mt-3 text-xs text-emerald-300 flex items-center justify-between font-semibold bg-emerald-950/50 px-4 py-2 rounded-xl border border-emerald-500/30 shadow-xs">
+                        <span className="flex items-center gap-2">
+                          <Sparkles size={14} className="text-emerald-400 animate-spin" style={{ animationDuration: '8s' }} />
                           Recommended Earliest Window:
                         </span>
-                        <strong className="text-white font-black font-mono">{slotData.recommendedSlot}</strong>
+                        <strong className="text-white font-black font-mono text-sm">{slotData.recommendedSlot}</strong>
                       </div>
                     )}
                   </div>
@@ -547,32 +547,32 @@ export default function BookingModal({
               </div>
 
               {/* Bottom Actions Bar */}
-              <div className="pt-3 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-2.5 shrink-0">
-                <div className="text-[11px] text-slate-300 font-medium flex items-center gap-1.5 text-center sm:text-left">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-                  <span>Slot: <strong className="text-emerald-300">{slotDate} ({slotTime})</strong> for <strong className="text-white">{parsedWeight} Qtl {cropType.split('(')[0]}</strong></span>
+              <div className="pt-4 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3 shrink-0">
+                <div className="text-xs text-slate-300 font-medium flex items-center gap-2 text-center sm:text-left">
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+                  <span>Selected Slot: <strong className="text-emerald-300 font-bold">{slotDate} ({slotTime})</strong> for <strong className="text-white font-black">{parsedWeight} Qtl {cropType.split('(')[0]}</strong></span>
                 </div>
 
-                <div className="flex gap-2 w-full sm:w-auto">
+                <div className="flex gap-3 w-full sm:w-auto">
                   <button
                     type="button"
                     onClick={handleResetAndClose}
-                    className="flex-1 sm:flex-none px-4 py-2 border border-slate-700 hover:bg-slate-800/80 text-slate-300 font-bold rounded-xl transition cursor-pointer text-xs"
+                    className="flex-1 sm:flex-none px-6 py-2.5 border border-slate-700 hover:bg-slate-800 text-slate-300 font-bold rounded-xl transition cursor-pointer text-xs sm:text-sm"
                   >
                     Cancel
                   </button>
                   <button
                     type="submit"
                     disabled={loading || isCentrePaused}
-                    className={`flex-1 sm:flex-none px-5 py-2 font-black text-xs rounded-xl text-slate-950 shadow-xl transition flex items-center justify-center gap-2 cursor-pointer btn-shimmer ${
+                    className={`flex-1 sm:flex-none px-7 py-3 font-black text-xs sm:text-sm rounded-xl text-slate-950 shadow-xl transition flex items-center justify-center gap-2 cursor-pointer btn-shimmer ${
                       isCentrePaused
                         ? 'bg-slate-700 text-slate-400 cursor-not-allowed'
-                        : 'bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-500 hover:from-emerald-300 hover:to-teal-300 active:scale-95 shadow-emerald-500/30'
+                        : 'bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-500 hover:from-emerald-300 hover:to-teal-300 active:scale-95 shadow-emerald-500/40'
                     }`}
                   >
                     {loading ? (
                       <>
-                        <div className="w-3.5 h-3.5 border-2 border-slate-950 border-t-transparent rounded-full animate-spin"></div>
+                        <div className="w-4 h-4 border-2 border-slate-950 border-t-transparent rounded-full animate-spin"></div>
                         <span>Reserving Slot...</span>
                       </>
                     ) : (

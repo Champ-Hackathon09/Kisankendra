@@ -191,7 +191,10 @@ export default function CropStockSection({ onBookCropSlot }) {
           <p className="text-xs text-slate-400 mt-1">Try clearing your search query or season filter.</p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-6 w-full">
+        <div 
+          className="grid gap-6 w-full"
+          style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(330px, 1fr))' }}
+        >
           {filteredCrops.map((crop, idx) => {
             const isFull = crop.occupancyPercentage >= 85;
             const isModerate = crop.occupancyPercentage >= 60;
@@ -199,8 +202,8 @@ export default function CropStockSection({ onBookCropSlot }) {
             return (
               <div
                 key={crop.id}
-                style={{ animationDelay: `${idx * 60}ms` }}
-                className="bg-[#0e172a]/90 backdrop-blur-xl rounded-3xl border border-slate-800/90 shadow-xl hover:border-emerald-500/50 hover:shadow-2xl hover:shadow-emerald-950/30 transition-all duration-300 card-hover-effect overflow-hidden flex flex-col justify-between group"
+                style={{ animationDelay: `${idx * 70}ms` }}
+                className="bg-[#0b1426]/90 backdrop-blur-2xl rounded-3xl border border-emerald-500/20 hover:border-emerald-400 shadow-xl hover:shadow-[0_20px_45px_rgba(0,230,118,0.25)] transition-all duration-300 card-hover-effect overflow-hidden flex flex-col justify-between group"
               >
                 <div>
                   {/* High Resolution Real Agricultural Photograph Header (Enlarged to h-64) */}
