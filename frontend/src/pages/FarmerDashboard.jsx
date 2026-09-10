@@ -439,8 +439,8 @@ export default function FarmerDashboard({ user, onNavigate }) {
                 </h4>
                 <div className="flex items-center justify-between text-[10px] text-slate-400 mt-1.5">
                   <span className="font-medium">Max {info.maxMoisture}</span>
-                  <span className="text-emerald-400 font-bold group-hover:text-emerald-200 flex items-center gap-0.5">
-                    Book <ArrowRight className="h-2.5 w-2.5 inline group-hover:translate-x-1 transition-transform duration-300" />
+                  <span className="text-emerald-400 font-bold flex items-center gap-0.5 group-hover:translate-x-0.5 transition-transform">
+                    Book <ArrowRight className="h-2.5 w-2.5" />
                   </span>
                 </div>
               </div>
@@ -449,85 +449,81 @@ export default function FarmerDashboard({ user, onNavigate }) {
         </div>
       </div>
 
-      {/* Main Grid: Active Tokens & Mandi Centres */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* Left 2 Cols: My Tokens (BookMyShow-Style Tabbed Intake vs Completed History) */}
-        <div className="lg:col-span-2 space-y-5">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-            <div>
-              <div className="flex items-center gap-2.5">
-                <span className="p-1.5 rounded-xl bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 shadow-xs">
-                  <Ticket className="h-4 w-4 text-emerald-400" />
-                </span>
-                <h2 className="text-xl sm:text-2xl font-black text-white tracking-tight font-display drop-shadow-md">
-                  Your Procurement Tokens
-                </h2>
-              </div>
-              <p className="text-xs text-emerald-300 font-semibold mt-1 flex items-center gap-1.5 pl-0.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                Live queue telemetry, strict FIFO rankings, and gate clearance updates
-              </p>
-            </div>
+      {/* BookMyShow Style Lifecycle Navigation Tabs */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-3 border-b border-emerald-500/20">
+        <div>
+          <h2 className="text-xl sm:text-2xl font-black text-white tracking-tight font-display drop-shadow-md">
+            {dashboardTab === 'crops' ? '🌾 APMC Designated Crops & Silo Capacities' : dashboardTab === 'active' ? '🚜 Live Yard Intake Queue' : '📜 Certified Deliveries & J-Forms'}
+          </h2>
+          <p className="text-xs text-emerald-300 font-semibold mt-1">
+            {dashboardTab === 'crops' ? 'Edge-to-edge storage metrics, moisture standards & instant procurement booking' : 'Real-time weighbridge telemetry & electronic gate passes'}
+          </p>
+        </div>
 
-            {/* BookMyShow Style Lifecycle Navigation Tabs */}
-            <div className="flex items-center bg-[#071711] p-1.5 rounded-2xl border border-emerald-500/25 shadow-inner">
-              <button
-                type="button"
-                onClick={() => setDashboardTab('active')}
-                className={`px-3.5 py-1.5 rounded-xl text-xs font-black transition-all flex items-center gap-1.5 cursor-pointer ${
-                  dashboardTab === 'active'
-                    ? 'bg-gradient-to-r from-emerald-800 to-emerald-900 text-white shadow-md border border-emerald-400/40 shadow-emerald-900/40'
-                    : 'text-slate-400 hover:text-white'
-                }`}
-              >
-                <Clock className="h-3.5 w-3.5 text-emerald-400" />
-                Active Queue ({activeTokens.length})
-              </button>
-              <button
-                type="button"
-                onClick={() => setDashboardTab('crops')}
-                className={`px-3.5 py-1.5 rounded-xl text-xs font-black transition-all flex items-center gap-1.5 cursor-pointer ${
-                  dashboardTab === 'crops'
-                    ? 'bg-gradient-to-r from-emerald-800 to-emerald-900 text-white shadow-md border border-emerald-400/40 shadow-emerald-900/40'
-                    : 'text-slate-400 hover:text-white'
-                }`}
-              >
-                <Warehouse className="h-3.5 w-3.5 text-emerald-400" />
-                🌾 Crop Silo Stocks
-              </button>
-              <button
-                type="button"
-                onClick={() => setDashboardTab('history')}
-                className={`px-3.5 py-1.5 rounded-xl text-xs font-black transition-all flex items-center gap-1.5 cursor-pointer ${
-                  dashboardTab === 'history'
-                    ? 'bg-gradient-to-r from-emerald-800 to-emerald-900 text-white shadow-md border border-emerald-400/40 shadow-emerald-900/40'
-                    : 'text-slate-400 hover:text-white'
-                }`}
-              >
-                <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400" />
-                Completed & Receipts ({historyTokens.length})
-              </button>
-            </div>
-          </div>
+        <div className="flex items-center bg-[#071711] p-1.5 rounded-2xl border border-emerald-500/25 shadow-inner self-start sm:self-auto">
+          <button
+            type="button"
+            onClick={() => setDashboardTab('active')}
+            className={`px-3.5 py-1.5 rounded-xl text-xs font-black transition-all flex items-center gap-1.5 cursor-pointer ${
+              dashboardTab === 'active'
+                ? 'bg-gradient-to-r from-emerald-800 to-emerald-900 text-white shadow-md border border-emerald-400/40 shadow-emerald-900/40'
+                : 'text-slate-400 hover:text-white'
+            }`}
+          >
+            <Clock className="h-3.5 w-3.5 text-emerald-400" />
+            Active Queue ({activeTokens.length})
+          </button>
+          <button
+            type="button"
+            onClick={() => setDashboardTab('crops')}
+            className={`px-3.5 py-1.5 rounded-xl text-xs font-black transition-all flex items-center gap-1.5 cursor-pointer ${
+              dashboardTab === 'crops'
+                ? 'bg-gradient-to-r from-emerald-800 to-emerald-900 text-white shadow-md border border-emerald-400/40 shadow-emerald-900/40'
+                : 'text-slate-400 hover:text-white'
+            }`}
+          >
+            <Warehouse className="h-3.5 w-3.5 text-emerald-400" />
+            🌾 Crop Silo Stocks
+          </button>
+          <button
+            type="button"
+            onClick={() => setDashboardTab('history')}
+            className={`px-3.5 py-1.5 rounded-xl text-xs font-black transition-all flex items-center gap-1.5 cursor-pointer ${
+              dashboardTab === 'history'
+                ? 'bg-gradient-to-r from-emerald-800 to-emerald-900 text-white shadow-md border border-emerald-400/40 shadow-emerald-900/40'
+                : 'text-slate-400 hover:text-white'
+            }`}
+          >
+            <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400" />
+            Completed & Receipts ({historyTokens.length})
+          </button>
+        </div>
+      </div>
 
-          {/* CROP SILO STOCKS TAB */}
-          {dashboardTab === 'crops' && (
-            <CropStockSection onBookCropSlot={(cropName) => handleOpenBooking(cropName)} />
-          )}
+      {/* VIEW 1: CROP SILO STOCKS (FULL-WIDTH 100% SCREEN REAL ESTATE, ZERO SQUEEZE!) */}
+      {dashboardTab === 'crops' && (
+        <div className="w-full animate-fade-in-up">
+          <CropStockSection onBookCropSlot={(cropName) => handleOpenBooking(cropName)} />
+        </div>
+      )}
 
-          {/* ACTIVE QUEUE TAB */}
-          {dashboardTab === 'active' && (
-            <>
-              {activeTokens.length === 0 ? (
-                <div className="bg-[#091f16]/95 border border-emerald-500/30 rounded-3xl p-8 sm:p-12 text-center shadow-2xl backdrop-blur-xl relative overflow-hidden">
-                  {/* Subtle decorative radial light */}
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      {/* VIEW 2 & 3: ACTIVE QUEUE & COMPLETED HISTORY (BALANCED 2-COL + 1-COL) */}
+      {dashboardTab !== 'crops' && (
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 w-full animate-fade-in-up">
+          {/* Left 2 Cols: My Tokens */}
+          <div className="lg:col-span-2 space-y-5">
+            {/* ACTIVE QUEUE TAB */}
+            {dashboardTab === 'active' && (
+              <>
+                {activeTokens.length === 0 ? (
+                  <div className="bg-[#091f16]/95 border border-emerald-500/30 rounded-3xl p-8 sm:p-12 text-center shadow-2xl backdrop-blur-xl relative overflow-hidden">
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
-                  <div className="relative z-10">
-                    <div className="w-16 h-16 rounded-2xl bg-emerald-500/15 border border-emerald-400/40 flex items-center justify-center mx-auto mb-4 shadow-lg shadow-emerald-950/60 animate-float-slow">
-                      <Tractor className="h-8 w-8 text-emerald-400" />
-                    </div>
-                    <h3 className="text-xl font-black text-white font-display">No Active Procurement Tokens in Queue</h3>
+                    <div className="relative z-10">
+                      <div className="w-16 h-16 rounded-2xl bg-emerald-500/15 border border-emerald-400/40 flex items-center justify-center mx-auto mb-4 shadow-lg shadow-emerald-950/60 animate-float-slow">
+                        <Tractor className="h-8 w-8 text-emerald-400" />
+                      </div>
+                      <h3 className="text-xl font-black text-white font-display">No Active Procurement Tokens in Queue</h3>
                     <p className="text-xs text-slate-300 mt-2 max-w-md mx-auto leading-relaxed font-medium">
                       You currently have no pending mandi intake slots. Reserve your next delivery slot below to receive an automated FIFO token with live weighbridge telemetry.
                     </p>
@@ -935,6 +931,7 @@ export default function FarmerDashboard({ user, onNavigate }) {
           </div>
         </div>
       </div>
+      )}
 
       {/* Mandi Operational Transparency & Telemetry Status Footer */}
       <div className="mt-12 pt-8 border-t border-emerald-500/20">
