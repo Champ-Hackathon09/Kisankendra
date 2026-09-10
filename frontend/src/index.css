@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,22 +6,24 @@
 
 :root {
   font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  --color-agri-dark: #080d17;
-  --color-agri-card: rgba(13, 21, 35, 0.88);
+  --color-agri-dark: #070c16;
+  --color-agri-card: rgba(14, 23, 40, 0.88);
   --color-agri-border: rgba(16, 185, 129, 0.22);
   --color-agri-neon: #10b981;
+  --color-agri-mint: #00e676;
+  --color-wheat-gold: #f59e0b;
 }
 
 html, body, #root {
   margin: 0;
   min-height: 100vh;
-  background-color: #080d17 !important;
+  background-color: #070c16 !important;
   color: #f1f5f9;
   background-image:
-    radial-gradient(at 10% 12%, rgba(16, 185, 129, 0.16) 0px, transparent 48%),
-    radial-gradient(at 90% 18%, rgba(245, 158, 11, 0.12) 0px, transparent 42%),
-    radial-gradient(at 52% 85%, rgba(14, 165, 233, 0.12) 0px, transparent 52%),
-    radial-gradient(circle, rgba(16, 185, 129, 0.08) 1.2px, transparent 1.2px);
+    radial-gradient(at 15% 15%, rgba(16, 185, 129, 0.18) 0px, transparent 46%),
+    radial-gradient(at 85% 12%, rgba(245, 158, 11, 0.14) 0px, transparent 40%),
+    radial-gradient(at 50% 85%, rgba(6, 182, 212, 0.14) 0px, transparent 48%),
+    radial-gradient(circle, rgba(16, 185, 129, 0.07) 1.2px, transparent 1.2px);
   background-size: 100% 100%, 100% 100%, 100% 100%, 32px 32px;
   background-attachment: fixed;
   overflow-x: hidden;
@@ -32,6 +34,10 @@ h1, h2, h3, .font-display {
   font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
 }
 
+.font-google {
+  font-family: 'Inter', 'Roboto', 'Plus Jakarta Sans', sans-serif;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -40,11 +46,22 @@ html {
 @keyframes slideInUp {
   from {
     opacity: 0;
-    transform: translateY(16px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
     transform: none;
+  }
+}
+
+@keyframes fadeInUpSmooth {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -99,15 +116,6 @@ html {
   }
 }
 
-@keyframes shimmerSlide {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-}
-
 @keyframes marquee {
   0% {
     transform: translateX(0%);
@@ -123,7 +131,7 @@ html {
     transform: scale(1);
   }
   50% {
-    opacity: 0.88;
+    opacity: 0.9;
     transform: scale(1.02);
   }
 }
@@ -155,9 +163,28 @@ html {
   }
 }
 
+@keyframes modalScaleIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.93) translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
 /* Utility Animation Classes */
 .animate-slide-up {
-  animation: slideInUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: slideInUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUpSmooth 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-modal-in {
+  animation: modalScaleIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .animate-glow-pulse {
@@ -204,49 +231,50 @@ html {
 
 /* Modern Obsidian-Emerald Glass Surfaces */
 .glass-panel-dark {
-  background: rgba(13, 21, 35, 0.84);
+  background: rgba(14, 23, 40, 0.88);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(16, 185, 129, 0.18);
+  border: 1px solid rgba(16, 185, 129, 0.2);
 }
 
 .glass-panel-glow {
-  background: rgba(15, 25, 42, 0.90);
+  background: rgba(16, 27, 46, 0.92);
   backdrop-filter: blur(28px);
   -webkit-backdrop-filter: blur(28px);
-  border: 1px solid rgba(16, 185, 129, 0.32);
-  box-shadow: 0 12px 36px -6px rgba(0, 0, 0, 0.6), 0 0 24px -2px rgba(16, 185, 129, 0.22);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  box-shadow: 0 14px 40px -6px rgba(0, 0, 0, 0.65), 0 0 28px -2px rgba(16, 185, 129, 0.25);
 }
 
 .glass-modal-surface {
-  background: linear-gradient(145deg, rgba(14, 23, 38, 0.97) 0%, rgba(9, 15, 26, 0.99) 100%);
+  background: linear-gradient(145deg, rgba(15, 25, 42, 0.98) 0%, rgba(9, 16, 28, 0.99) 100%);
   backdrop-filter: blur(32px);
   -webkit-backdrop-filter: blur(32px);
   border: 1px solid rgba(16, 185, 129, 0.35);
-  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.8), 0 0 40px -5px rgba(16, 185, 129, 0.25);
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.85), 0 0 45px -5px rgba(16, 185, 129, 0.28);
 }
 
 .glass-sidebar {
-  background: linear-gradient(180deg, rgba(10, 16, 28, 0.98) 0%, rgba(8, 13, 22, 0.99) 100%);
+  background: linear-gradient(180deg, rgba(11, 18, 32, 0.98) 0%, rgba(8, 14, 24, 0.99) 100%);
   backdrop-filter: blur(28px);
-  border-right: 1px solid rgba(16, 185, 129, 0.18);
+  border-right: 1px solid rgba(16, 185, 129, 0.2);
 }
 
+/* Card Hover Elevation */
 .card-hover-effect {
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .card-hover-effect:hover {
-  transform: translateY(-4px) scale(1.01);
-  box-shadow: 0 18px 40px -8px rgba(0, 0, 0, 0.6), 0 0 28px -3px rgba(16, 185, 129, 0.32);
-  border-color: rgba(16, 185, 129, 0.45);
+  transform: translateY(-5px) scale(1.012);
+  box-shadow: 0 22px 45px -10px rgba(0, 0, 0, 0.7), 0 0 32px -2px rgba(16, 185, 129, 0.35);
+  border-color: rgba(16, 185, 129, 0.55);
 }
 
 /* Interactive Slot Button Glow & Springs */
 .slot-pill-active {
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.25) 0%, rgba(5, 150, 105, 0.4) 100%);
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.3) 0%, rgba(5, 150, 105, 0.45) 100%);
   border: 1.5px solid #10b981 !important;
-  box-shadow: 0 0 18px rgba(16, 185, 129, 0.35), inset 0 0 10px rgba(16, 185, 129, 0.2);
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.4), inset 0 0 12px rgba(16, 185, 129, 0.25);
   transform: scale(1.02);
 }
 
@@ -256,13 +284,13 @@ html {
 
 .slot-pill-hover:hover:not(:disabled) {
   transform: translateY(-2px);
-  border-color: rgba(52, 211, 153, 0.5);
-  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.18);
+  border-color: rgba(52, 211, 153, 0.55);
+  box-shadow: 0 6px 18px rgba(16, 185, 129, 0.22);
 }
 
 /* Metallic Gradients */
 .text-gradient-emerald {
-  background: linear-gradient(135deg, #4ade80 0%, #10b981 50%, #059669 100%);
+  background: linear-gradient(135deg, #6ee7b7 0%, #10b981 50%, #059669 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -280,7 +308,7 @@ html {
 }
 
 .text-gradient-light {
-  background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 70%, #94a3b8 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 65%, #cbd5e1 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -301,7 +329,7 @@ html {
   background: linear-gradient(
     60deg,
     transparent 30%,
-    rgba(255, 255, 255, 0.18) 50%,
+    rgba(255, 255, 255, 0.22) 50%,
     transparent 70%
   );
   transform: rotate(30deg);
@@ -317,12 +345,12 @@ html {
 
 /* Custom Sleek Scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 7px;
+  height: 7px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #080d17;
+  background: #070c16;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -331,5 +359,5 @@ html {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(16, 185, 129, 0.65);
+  background: rgba(16, 185, 129, 0.7);
 }

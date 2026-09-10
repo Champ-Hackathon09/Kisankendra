@@ -230,7 +230,7 @@ export default function FarmerDashboard({ user, onNavigate }) {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8 animate-slide-up">
+    <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 py-6 space-y-8 animate-fade-in-up">
       {/* Welcome Command Banner */}
       <div className="relative rounded-3xl p-6 sm:p-8 text-white shadow-2xl shadow-black/60 overflow-hidden border border-emerald-500/30 bg-gradient-to-br from-[#0c1626]/95 via-[#0e1d33]/90 to-[#080d17]/98 transition-all duration-300 hover:border-emerald-400/50">
         {/* Ambient Radial Lights */}
@@ -343,7 +343,7 @@ export default function FarmerDashboard({ user, onNavigate }) {
           </div>
 
           {/* Quick Slot Grid (सामने) */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2.5 mt-4">
+          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3 mt-5">
             {[
               { slot: '08:00 AM - 09:00 AM', status: 'AVAILABLE', left: '6 Open', color: 'emerald' },
               { slot: '09:00 AM - 10:00 AM', status: 'AVAILABLE', left: '5 Open', color: 'emerald' },
@@ -358,17 +358,17 @@ export default function FarmerDashboard({ user, onNavigate }) {
                 key={item.slot}
                 type="button"
                 onClick={() => handleOpenBooking()}
-                className="p-2.5 rounded-xl text-left bg-[#061710] hover:bg-[#0b281d] border border-emerald-500/25 hover:border-emerald-400 transition-all duration-200 cursor-pointer flex flex-col justify-between group hover:scale-[1.03] shadow-md"
+                className="p-3.5 sm:p-4 rounded-2xl text-left bg-[#071711] hover:bg-[#0c2e22] border border-emerald-500/30 hover:border-emerald-400 transition-all duration-200 cursor-pointer flex flex-col justify-between group hover:scale-[1.04] shadow-md hover:shadow-emerald-950/40"
               >
-                <div className="text-[10px] font-mono font-bold text-white leading-tight">
+                <div className="text-xs sm:text-sm font-mono font-bold text-white leading-tight">
                   {item.slot.split(' - ')[0]}
                 </div>
-                <div className="text-[9px] text-slate-400 font-medium">
+                <div className="text-[11px] text-slate-400 font-medium mt-0.5">
                   to {item.slot.split(' - ')[1]}
                 </div>
-                <div className="mt-2 flex items-center justify-between">
+                <div className="mt-3 flex items-center justify-between">
                   <span
-                    className={`text-[8px] font-black uppercase px-1.5 py-0.5 rounded ${
+                    className={`text-[9px] sm:text-[10px] font-black uppercase px-2 py-0.5 rounded-md ${
                       item.color === 'amber'
                         ? 'bg-amber-500/20 text-amber-300 border border-amber-400/30'
                         : 'bg-emerald-500/20 text-emerald-300 border border-emerald-400/30'
@@ -376,7 +376,7 @@ export default function FarmerDashboard({ user, onNavigate }) {
                   >
                     {item.left}
                   </span>
-                  <span className="text-[9px] text-emerald-400 font-bold group-hover:translate-x-0.5 transition-transform">
+                  <span className="text-xs text-emerald-400 font-bold group-hover:translate-x-1 transition-transform">
                     →
                   </span>
                 </div>

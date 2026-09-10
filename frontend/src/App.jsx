@@ -118,7 +118,7 @@ export default function App() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#080d17]">
+      <div className="min-h-screen flex items-center justify-center bg-[#070c16]">
         <div className="text-center">
           <div className="w-10 h-10 border-4 border-emerald-500 border-t-transparent rounded-full animate-spin mx-auto mb-3"></div>
           <p className="text-xs font-bold text-emerald-400">Connecting to KisanKendra Telemetry...</p>
@@ -132,7 +132,7 @@ export default function App() {
   }
 
   return (
-    <div className="h-screen w-screen overflow-hidden bg-[#080d17] text-slate-100 flex">
+    <div className="h-screen w-screen overflow-hidden bg-[#070c16] text-slate-100 flex">
       {/* 1. Left Vertical Navigation Sidebar */}
       <Sidebar
         activeTab={activeTab}
@@ -143,7 +143,7 @@ export default function App() {
       />
 
       {/* 2. Main Work Area */}
-      <div className="flex-1 flex flex-col min-w-0 h-full overflow-hidden bg-[#080d17]">
+      <div className="flex-1 flex flex-col min-w-0 h-full overflow-hidden bg-[#070c16]">
         {/* Top Floating Cyber-Agritech Command Bar */}
         <header className="bg-[#0b1222]/90 backdrop-blur-2xl border-b border-slate-800/80 px-6 py-2.5 flex items-center justify-between gap-4 shrink-0 z-20 shadow-[0_4px_25px_rgba(0,0,0,0.5)]">
           {/* Quick Search */}
@@ -244,36 +244,38 @@ export default function App() {
         </header>
 
         {/* Dynamic View Body */}
-        <main className="flex-1 overflow-y-auto p-5 md:p-7 bg-[#080d17]/95">
-          {activeTab === 'dashboard' && <FarmerDashboard user={user} onNavigate={setActiveTab} />}
-          {activeTab === 'operator' && <OperatorConsole user={user} />}
-          {activeTab === 'stocks' && (
-            <CropStockSection onBookCropSlot={(crop) => handleOpenBooking('', crop)} />
-          )}
-          {activeTab === 'queue' && <QueueView searchQuery={searchQuery} user={user} />}
-          {activeTab === 'status' && (
-            <StatusView
-              searchQuery={searchQuery}
-              user={user}
-              onBookSlot={() => handleOpenBooking()}
-              onViewJForm={handleOpenJForm}
-            />
-          )}
-          {activeTab === 'centres' && (
-            <CentresView
-              searchQuery={searchQuery}
-              user={user}
-              onBookSlot={(cId) => handleOpenBooking(cId)}
-              onCentresUpdated={fetchGlobalCentres}
-            />
-          )}
-          {activeTab === 'map' && <MapView />}
-          {activeTab === 'predictions' && <AIPredictionsView />}
-          {activeTab === 'weather' && <WeatherView />}
-          {activeTab === 'analytics' && <AnalyticsView />}
-          {activeTab === 'alerts' && <AlertsView />}
-          {activeTab === 'help' && <HelpView />}
-          {activeTab === 'settings' && <SettingsView user={user} onUserUpdated={setUser} />}
+        <main className="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8 bg-[#070c16]/95 w-full">
+          <div className="w-full max-w-[1720px] mx-auto animate-fade-in-up">
+            {activeTab === 'dashboard' && <FarmerDashboard user={user} onNavigate={setActiveTab} />}
+            {activeTab === 'operator' && <OperatorConsole user={user} />}
+            {activeTab === 'stocks' && (
+              <CropStockSection onBookCropSlot={(crop) => handleOpenBooking('', crop)} />
+            )}
+            {activeTab === 'queue' && <QueueView searchQuery={searchQuery} user={user} />}
+            {activeTab === 'status' && (
+              <StatusView
+                searchQuery={searchQuery}
+                user={user}
+                onBookSlot={() => handleOpenBooking()}
+                onViewJForm={handleOpenJForm}
+              />
+            )}
+            {activeTab === 'centres' && (
+              <CentresView
+                searchQuery={searchQuery}
+                user={user}
+                onBookSlot={(cId) => handleOpenBooking(cId)}
+                onCentresUpdated={fetchGlobalCentres}
+              />
+            )}
+            {activeTab === 'map' && <MapView />}
+            {activeTab === 'predictions' && <AIPredictionsView />}
+            {activeTab === 'weather' && <WeatherView />}
+            {activeTab === 'analytics' && <AnalyticsView />}
+            {activeTab === 'alerts' && <AlertsView />}
+            {activeTab === 'help' && <HelpView />}
+            {activeTab === 'settings' && <SettingsView user={user} onUserUpdated={setUser} />}
+          </div>
         </main>
       </div>
 
